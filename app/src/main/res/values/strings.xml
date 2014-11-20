@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    //Aqui definiremos los Strings que usaremos durante nuestro programa.
     <string name="app_name">AgendaTelfNom</string>
-    <string name="hello_world">Hello world!</string>
+    //Definimos las cajas de texto que mostraremos en nuestra pantalla.
+    <string name="txtSaludo">Bienvenido a nuestra Agenda</string>
+    <string name="txtNombre">Nombre</string>
+    <string name="txtTelefono">Telefono</string>
+    <string name="txtTexto">Porfavor indique el nombre a Editar</string>
+
+    //Definimos el texto que llevaran nuestros botones
+    <string name="btnGuardar">Guardar</string>
+    <string name="btnEditar">Editar</string>
+
+    //definimos el texto que llevaran nuestros EditText, por defecto estes estaran vacios.
+    <string name="edtNombre"></string>
+    <string name="edtTelefono"></string>
+    <string name="edtEditContac"></string>
+
     <string name="action_settings">Settings</string>
 
 </resources>
