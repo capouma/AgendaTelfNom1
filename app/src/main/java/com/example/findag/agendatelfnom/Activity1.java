@@ -21,8 +21,8 @@ public class Activity1 extends Activity
     final int noMatch = 3;
 
     // Definimos los EditTex nombre y telefono que necesitaremos.
-    EditText txvNombre;
-    EditText txvTelefono;
+    EditText edtNombre;
+    EditText edtTelefono;
 
     // Definimos el ArrayList en el que guardaremos nuestros contactos.
     ArrayList<Contactos> insertContac = new ArrayList<Contactos>();
@@ -46,21 +46,21 @@ public class Activity1 extends Activity
             @Override
             public void onClick(View v)
             {
-                txvNombre = (EditText) findViewById(R.id.txvNombre);
-                txvTelefono = (EditText) findViewById(R.id.txvTelefono);
+                edtNombre = (EditText) findViewById(R.id.edtNombre);
+                edtTelefono = (EditText) findViewById(R.id.edtTelefono);
                 //Comprobamos que tanto el campo nombre y telefono estan cubiertos, si n lo estan salta la Toast.
-                if (txvNombre.getText().toString().equals("") || txvTelefono.getText().toString().equals(""))
+                if (edtNombre.getText().toString().equals("") || edtTelefono.getText().toString().equals(""))
                 {
                     showToast(noNomTelf);
                     return;
                 }
                 else
                 {
-                    insertContac.add(new Contactos(txvNombre.getText().toString(), txvTelefono.getText().toString()));
+                    insertContac.add(new Contactos(edtNombre.getText().toString(), edtTelefono.getText().toString()));
 
                     //Dejamos los campos del nombre y el telefono en blanco
-                    txvNombre.setText("");
-                    txvTelefono.setText("");
+                    edtNombre.setText("");
+                    edtTelefono.setText("");
                 }
 
             }
