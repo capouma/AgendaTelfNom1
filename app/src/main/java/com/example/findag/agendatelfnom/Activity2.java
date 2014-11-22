@@ -28,8 +28,8 @@ public class Activity2 extends Activity
         Contactos aEditar = (Contactos) getIntent().getSerializableExtra("editando");
 
         // Insertamos los datos recogidos en nuestro objeto aEditar en nuestraos EditText nombre y telefono.
-        edtNombre.setText(aEditar.nombre);
-        edtTelefono.setText(aEditar.telefono);
+        edtNombre.setText(aEditar.getNombre());
+        edtTelefono.setText(aEditar.getTelefono());
 
         //Creamos el evento onClick de nuestro boton Cambiar.
         btnCambiar.setOnClickListener(new View.OnClickListener()
@@ -40,7 +40,8 @@ public class Activity2 extends Activity
             {
                 Intent modificado = new Intent();
                 Contactos editado = new Contactos(edtNombre.getText().toString(), edtTelefono.getText().toString());
-                modificado.putExtra("contactoEditado",editado);
+                modificado.putExtra("nombreEditado", editado.getNombre());
+                modificado.putExtra("telefonoEditado", editado.getTelefono());
                 setResult(RESULT_OK, modificado);
                 finish();
             }

@@ -21,9 +21,10 @@ public class Activity1 extends Activity
     final int noNom = 2;
     final int noMatch = 3;
 
-    // Definimos los EditTex nombre y telefono que necesitaremos.
+    // Definimos los EditTex nombre , telefono y edtque necesitaremos.
     EditText edtNombre;
     EditText edtTelefono;
+    EditText edtEditcontacto;
 
     // Definimos el ArrayList en el que guardaremos nuestros contactos.
     ArrayList<Contactos> insertContac = new ArrayList<Contactos>();
@@ -76,12 +77,13 @@ public class Activity1 extends Activity
             @Override
             public void onClick(View v)
             {
+                edtEditcontacto = (EditText) findViewById(R.id.edtEditContac);
                 Boolean encuentraNom = false;
                 // Creamos nuestro intent.
                 Intent pantalla2 = new Intent(Activity1.this, Activity2.class);
 
                 // Comprobamos si al hacer click tenemos almacenado algun contacto.
-                if(insertContac.size() == 0)
+                if(edtEditcontacto.getText().toString().equals(""))
                 {
                     showToast(noNom);
                     return;
@@ -91,10 +93,10 @@ public class Activity1 extends Activity
                     // Recorremos nuestro ArrayList para buscar coincidencias con el nombre solicitado.
                     for(int i = 0; i < insertContac.size(); i++)
                     {
-                        if(insertContac.get(i).nombre.equals(edtNombre.getText().toString()))
+                        if(insertContac.get(i).getNombre().equals(edtEditcontacto.getText().toString()))
                         {
                             reEscribe = i;
-                            Contactos contactoEdit = new Contactos(insertContac.get(i).nombre, insertContac.get(i).telefono);
+                            Contactos contactoEdit = new Contactos(insertContac.get(i).getNombre(), insertContac.get(i).getTelefono());
                             pantalla2.putExtra("editando", contactoEdit);
                             encuentraNom = true;
                             startActivityForResult(pantalla2,CONTACTO);
@@ -165,8 +167,13 @@ public class Activity1 extends Activity
     }
 
     // Con el metodo onActivityResult recogeremos el valor del intent de la segunda pantalla
-    protected void onActivityResult (int requestCode, int resultCode, Intent data)
+    protected void onActivityResult (int requestCode, int resultCode, Intent modificado)
     {
+        super.onActivityResult(requestCode, resultCode, modificado);
+
+        Contactos editado = new Contactos(modificado.getExtras().getString("nombreEditado"), modificado.getExtras().getString("telefonoEditado"));
+        insertContac.remove(reEscribe);
+        insertContac.add(reEscribe,editado);
 
     }
 }

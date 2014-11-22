@@ -23,7 +23,6 @@
 
     <EditText
         android:id="@+id/edtNombre2"
-        android:text="@string/edtNombre"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"/>
@@ -38,13 +37,12 @@
 
     <EditText
         android:id="@+id/edtTelefono2"
-        android:text="@string/edtTelefono"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"/>
 
     <Button
-        android:id="@+id/btCambiar"
+        android:id="@+id/btnCambiar"
         android:text="@string/btnCambio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

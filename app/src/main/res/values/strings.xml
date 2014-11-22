@@ -1,23 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    //Aqui definiremos los Strings que usaremos durante nuestro programa.
+    <!--Aqui definiremos los Strings que usaremos durante nuestro programa.-->
     <string name="app_name">AgendaTelfNom</string>
-    //Definimos las cajas de texto que mostraremos en nuestra pantalla.
-    <string name="txtSaludo">Bienvenido a nuestra Agenda</string>
-    <string name="txtNombre">Nombre</string>
-    <string name="txtTelefono">Telefono</string>
-    <string name="txtTexto">Porfavor indique el nombre a Editar</string>
 
-    //Definimos el texto que llevaran nuestros botones
+    <!--Definimos las cajas de texto que mostraremos en nuestra pantalla. -->
+    <string name="txvSaludo">Bienvenido a nuestra Agenda</string>
+    <string name="txvNombre">Nombre</string>
+    <string name="txvTelefono">Telefono</string>
+    <string name="txvTexto">Porfavor indique el nombre a Editar</string>
+
+    <!--Definimos el texto que llevaran nuestros botones-->
     <string name="btnGuardar">Guardar</string>
     <string name="btnEditar">Editar</string>
 
-    //definimos el texto que llevaran nuestros EditText, por defecto estes estaran vacios.
-    <string name="edtNombre"></string>
-    <string name="edtTelefono"></string>
-    <string name="edtEditContac"></string>
-
     <string name="action_settings">Settings</string>
+
+    <!--Aqui definiremos los strings que usaremos en nuestra segunda Activity y que no podemos reutilizar de la primera-->
+    <string name="title_activity_activity2">Activity2</string>
+
+    <string name="txvSaludo2">Cambie el nombre o el telefono del contacto</string>
+    <string name="btnCambio">Cambiar</string>
+
+    <!--Añadimos los String que vamos a usar para nuestras Toast.-->
+    <string name="noMatch">No se encuentran coincidencias.</string>
+    <string name="noNombre">Inserte un nombre para busca.</string>
+    <string name="noNomTelf">Falta nombre o telefono</string>
 
 </resources>
