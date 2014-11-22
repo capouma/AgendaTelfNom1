@@ -2,6 +2,7 @@ package com.example.findag.agendatelfnom;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,6 +27,9 @@ public class Activity1 extends Activity
 
     // Definimos el ArrayList en el que guardaremos nuestros contactos.
     ArrayList<Contactos> insertContac = new ArrayList<Contactos>();
+
+    // Variable que contendra la posicion de nuestro contacto modificado.
+    int reEscribe;
 
     //Definimos nuestra variable static que sera nuestro requestCode(esta variable es la que identifica el intent que enviamos).
     private final static int CONTACTO = 1;
@@ -61,6 +65,46 @@ public class Activity1 extends Activity
                     //Dejamos los campos del nombre y el telefono en blanco
                     edtNombre.setText("");
                     edtTelefono.setText("");
+                }
+
+            }
+        });
+
+        // Definimos el onClick del boton Editar
+        btnEditar.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Boolean encuentraNom = false;
+                // Creamos nuestro intent.
+                Intent pantalla2 = new Intent(Activity1.this, Activity2.class);
+
+                // Comprobamos si al hacer click tenemos almacenado algun contacto.
+                if(insertContac.size() == 0)
+                {
+                    showToast(noNom);
+                    return;
+                }
+                else
+                {
+                    // Recorremos nuestro ArrayList para buscar coincidencias con el nombre solicitado.
+                    for(int i = 0; i < insertContac.size(); i++)
+                    {
+                        if(insertContac.get(i).nombre.equals(edtNombre.getText().toString()))
+                        {
+                            reEscribe = i;
+                            Contactos contactoEdit = new Contactos(insertContac.get(i).nombre, insertContac.get(i).telefono);
+                            pantalla2.putExtra("editando", contactoEdit);
+                            encuentraNom = true;
+                            startActivityForResult(pantalla2,CONTACTO);
+                        }
+                    }
+                    if (encuentraNom == false)
+                    {
+                        showToast(noMatch);
+                    }
+
                 }
 
             }
@@ -118,5 +162,11 @@ public class Activity1 extends Activity
             toast = Toast.makeText(context, texto, duracion);
         }
         toast.show();
+    }
+
+    // Con el metodo onActivityResult recogeremos el valor del intent de la segunda pantalla
+    protected void onActivityResult (int requestCode, int resultCode, Intent data)
+    {
+
     }
 }

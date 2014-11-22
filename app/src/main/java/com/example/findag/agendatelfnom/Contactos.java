@@ -1,10 +1,11 @@
 package com.example.findag.agendatelfnom;
 
+import java.io.Serializable;
+
 /**
  * Created by findag on 21/11/14.
  */
-public class Contactos
-{
+public class Contactos implements Serializable {
     // Definimos las variables que tendremos.
     String nombre;
     String telefono;
