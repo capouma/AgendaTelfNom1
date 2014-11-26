@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-
+//Rama 3
 public class Activity2 extends Activity
 {
 
